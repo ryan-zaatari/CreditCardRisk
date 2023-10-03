@@ -1,6 +1,9 @@
 ---
 layout: default
+title: Loan Risk Model
 ---
+
+
 Dataset: https://www.kaggle.com/datasets/mishra5001/credit-card?select=application_data.csv
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
