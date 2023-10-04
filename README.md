@@ -1,4 +1,4 @@
-# The Cayman theme
+# ML - G72
 
 Webpage: https://colbyshaw.github.io/loan_risk_model/
 
