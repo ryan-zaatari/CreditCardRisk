@@ -1,24 +1,16 @@
 ---
 layout: default
+description: Explore driving factors that indicate loan risk.
 title: Loan Risk Model
 ---
 
+## Introduction/Background
 
-Dataset: https://www.kaggle.com/datasets/mishra5001/credit-card?select=application_data.csv
+For years, banks have placed an immense focus on assessing loan risk. Substantial research has delved into the analysis of loan risks, aiming to uncover correlations and patterns among people who struggle to payback their loans on time. We look to further investigate these patterns and variations in hopes to gain a better understanding of those who face challenges in meeting their financial gains. 
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+Our research will be based off of the Kaggle dataset: [Credit Card Fraud Detection](https://www.kaggle.com/datasets/mishra5001/credit-card?select=application_data.csv).It contains over 300,000 people who have taken out loans and indicates whether they were late to pay installments. The dataset contains 122 columns, or features, those of which include gender, annual income, whether one owns assests such as real estate or a car, credit amount, education, and information on previous loan application/history. 
 
-[Link to another page](./another-page.html).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# I changed this header
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
+## Problem Statement
 
 > This is a blockquote following a header.
 >
