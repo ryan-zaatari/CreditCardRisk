@@ -1,6 +1,6 @@
 # ML - G72
 
-Webpage: https://colbyshaw.github.io/loan_risk_model/
+Webpage: https://colbyshaw.github.io/loan_risk_model/](https://colbyshaw.github.io/CreditRiskModel/
 
 ### Previewing the theme locally
 
