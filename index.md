@@ -12,9 +12,7 @@ Our research will be based off of the Kaggle dataset: [Credit Card Fraud Detecti
 
 ## Problem Statement
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+Each year, Banks loan out millions of credit cards to customers. A big issue they face is loaning out cards to customers who either will be late to monthly payemnts or not pay at all and charge off. While it might may seem obvious that banks should avoid lending to customers who are likely to not pay back on time, several factors compel them to continue doing so- diversification, competition, and overall reputation. Our objective is to develop a model that better assesses the risk of incoming customers.
 
 ### Header 3
 
