@@ -21,17 +21,10 @@ To begin our analysis, we will apply PCA to our extensive dataset. This will all
 Furthermore, we will run supervised binary classification using neural networks, a technique to classify customers into two categories: those who made timely payments and those who did not. This approach will give us a better understanding of customer behavior and how it relates to their profiles.
 
 ## Potential Results / Discussion
-
-<<<<<<< HEAD
 PCA analysis will indicate that only a subset of these features will be required to accurately predict credit risk. We predict that customers who have had a previous history of timely payments will be much more likely to be approved than those who have not paid off previous loans. We also expect other features such as age, income, familial credit history, and assets to be good indicators of loan reliability.
 
 Overall, our model will enable banks to better evaluate credit risk when reviewing applications. With enhanced predictive capabilities, banks can approve applicants likely to repay debts and avoid issuing credit to high-default risks. This data-driven approach will enable smart credit allocation while expanding access for creditworthy consumers.
 * * *
-=======
-By utilizing PCA and neural networks, we will develop a model to detect credit card fraud in a dataset with 122 features. We predict our analysis will indicate that only a subset of these features is required to accurately predict fraud risk and expect customers that have had a previous history of timely payments will be much more likely to be approved than those who have not paid off previous loans. Other relevant predictors include age, income, familial credit history, assets, and additional financial factors.
-
-Overall, our model will enable banks to more precisely evaluate credit risk when reviewing applications. With enhanced predictive capabilities, banks can approve applicants likely to repay debts and avoid issuing credit to high-default risks. This data-driven approach will enable smart credit allocation while expanding access for creditworthy consumers.
-
 
 ### Checkpoints
 
