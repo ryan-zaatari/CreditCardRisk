@@ -1,7 +1,7 @@
 ---
 layout: default
-description: Explore driving factors that indicate loan risk.
-title: Loan Risk Model
+description: Explore driving factors that indicate credit card risk.
+title: Credit Card Risk Model
 ---
 
 ## Introduction/Background
@@ -14,28 +14,15 @@ Our research will be based off of the Kaggle dataset: [Credit Card Fraud Detecti
 
 Each year, Banks loan out millions of credit cards to customers. A big issue they face is loaning out cards to customers who either will be late to monthly payemnts or not pay at all and charge off. While it might may seem obvious that banks should avoid lending to customers who are likely to not pay back on time, several factors compel them to continue doing so- diversification, competition, and overall reputation. Our objective is to develop a model that better assesses the risk of incoming customers.
 
-### Header 3
+## Methods
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+To begin our analysis, we will apply PCA to our extensive dataset. This will allow us to identify which features carry the most influence when assessing credit card risk, given the dozens of attributes available. We hope to gain insight on attributes that carry the most weight. 
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+Furthermore, we will run supervised binary classification using neural networks, a technique to classify customers into two categories: those who made timely payments and those who did not. This approach will give us a better understanding of customer behavior and how it relates to their profiles.
 
-#### Header 4
+## Potential Results / Discussion
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+
 
 ##### Header 5
 
