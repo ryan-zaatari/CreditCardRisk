@@ -36,3 +36,5 @@ Furthermore, we will run supervised binary classification using neural networks,
 
 
 #### Gantt Chart
+
+https://docs.google.com/spreadsheets/d/1H2exZpf34Mvv1NrJl2h7FujrMA8PX88V/edit?usp=drive_link&ouid=118366975207972676440&rtpof=true&sd=true
