@@ -37,4 +37,4 @@ Furthermore, we will run supervised binary classification using neural networks,
 
 #### Gantt Chart
 
-[Gantt Chart - Proposal](https://docs.google.com/spreadsheets/d/1vUNEJyUcGG-XSNwLHA6Wzjpe0IY0C9i5/edit?usp=drive_link&ouid=118366975207972676440&rtpof=true&sd=true)
+[Gantt Chart - Proposal](https://gtvault.sharepoint.com/:x:/s/CS4641MLProjectTeam/EZsWnmIWIcJAk-Xb50eHuWsBEQd3F_iAyf3x9m4M9c_V7Q?e=lOfd4h)
