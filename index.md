@@ -22,7 +22,9 @@ Furthermore, we will run supervised binary classification using neural networks,
 
 ## Potential Results / Discussion
 
-* * *
+By utilizing PCA and neural networks, we will develop a model to detect credit card fraud in a dataset with 122 features. We predict our analysis will indicate that only a subset of these features is required to accurately predict fraud risk and expect customers that have had a previous history of timely payments will be much more likely to be approved than those who have not paid off previous loans. Other relevant predictors include age, income, familial credit history, assets, and additional financial factors.
+
+Overall, our model will enable banks to more precisely evaluate credit risk when reviewing applications. With enhanced predictive capabilities, banks can approve applicants likely to repay debts and avoid issuing credit to high-default risks. This data-driven approach will enable smart credit allocation while expanding access for creditworthy consumers.
 
 ### Contribution Table
 
