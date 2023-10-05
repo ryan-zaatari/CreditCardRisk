@@ -22,7 +22,22 @@ Furthermore, we will run supervised binary classification using neural networks,
 
 ## Potential Results / Discussion
 
+PCA analysis will indicate that only a subset of these features will be required to accurately predict credit risk. We predict that customers who have had a previous history of timely payments will be much more likely to be approved than those who have not paid off previous loans. We also expect other features such as age, income, familial credit history, and assets to be good indicators of loan reliability.
+
+Overall, our model will enable banks to better evaluate credit risk when reviewing applications. With enhanced predictive capabilities, banks can approve applicants likely to repay debts and avoid issuing credit to high-default risks. This data-driven approach will enable smart credit allocation while expanding access for creditworthy consumers.
 * * *
+
+### Checkpoints
+
+Midterm Report: 
+* Expect to have already run PCA analysis in various ways on our dataset.
+* Provide visualizations to contrasts the significance of certain features
+* Begin our Binary Classification using Neural Networks
+
+Final Report: 
+* Have our binary classification complete
+* If necessary, add an additional model to better analyze trends regarding risk and features (clustering, statistical model, etc.)
+
 
 ### Contribution Table
 
