@@ -52,3 +52,13 @@ Overall, our model will enable banks to better evaluate credit risk when reviewi
 #### Gantt Chart
 
 [Gantt Chart - Proposal](https://gtvault.sharepoint.com/:x:/s/CS4641MLProjectTeam/EZsWnmIWIcJAk-Xb50eHuWsBEQd3F_iAyf3x9m4M9c_V7Q?e=lOfd4h)
+
+##### References
+* [Germanno Teles, Joel J. P. C. Rodrigues, Ricardo A. L. Rabê, Sergei A. Kozlov (2020). Artificial neural network and Bayesian network models for credit risk prediction. Journal of Artificial Intelligence and Systems, 2, 118–132.](https://iecscience.org/public/uploads/jpapers/202003/JUA6ia0ppS0FvH3QgOUl1C09ccBGRCx9SFgQJhtG.pdf)
+
+* [P. Jeatrakul and K. W. Wong, "Comparing the performance of different neural networks for binary classification problems," 2009 Eighth International Symposium on Natural Language Processing, Bangkok, Thailand, 2009, pp. 111-115, doi: 10.1109/SNLP.2009.5340935.](https://ieeexplore.ieee.org/abstract/document/5340935)
+
+* [Shlens, Jonathon. “A Tutorial on Principal Component Analysis.” ArXiv abs/1404.1100 (2014): n. pag.](https://arxiv.org/abs/1404.1100)
+
+* Mishra5001. (2019, July 15). Credit Card Fraud Detection. Kaggle. https://www.kaggle.com/datasets/mishra5001/credit-card?select=application_data.csv 
+
