@@ -83,11 +83,11 @@ We are going to implement another model for our data, that being either Naive Ba
 
 | Name        | Contributions      |
 |:-------------|:------------------|
-| Colby | GitHub Page, Problem Statement Data Collection, Background/Intro, Methods| 
-| Greg | Problem Statement, Gantt Chart, Data Collection| 
-| Robbie | Data Collection, Potential Results/Discussions | 
-| Ryan | Data Collection, Potential Results/Discussions|
-| Carter | Data Collection, Video Presentation |
+| Colby | Data Cleaning, Preprocessing, Model Code, Mideterm Report, Webpage| 
+| Greg | Data Cleaning, Preprocessing | 
+| Robbie | Data Cleaning, Preprocessing | 
+| Ryan | Data Cleaning|
+| Carter | Midterm Report, Webpage |
 
 
 #### Gantt Chart
