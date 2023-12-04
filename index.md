@@ -98,6 +98,8 @@ Our model's precision for risk clients is 0.13. This means out of every 100 time
 | Nonrisk | 0.94 | 0.77 | 0.85 |
 | Risk | 0.15 | 0.47 | .23 | 
 
+As we can see, the following architectures perform no better. Our seems to still overfit to our data as training loss is decreasing whereas our testing loss seems to increase overtime. As a result, we tested the arcitechtures again with "dropout" neurons with hopes of correcting our overfitting issue. The graphs of these particular results are not provided, as a the accuracy after 25 epochs is within 1-2% of the networks without "dropout" neurons. 
+
 ### Random Forest Classifier
 The second model we chose to use is a Random Forest Classifier. The reason behind this choice is because random forest classifiers are generally harder to overfit. We thought this would be a great choice for a second, as our Neural Network tended to overfit our data. There are three parameters we dealt in our Random Forest Classifier.
 
@@ -116,7 +118,7 @@ Notice that as either max_depth or min_samples_leaf decreases, our Mean Test Sco
     <img src="Confusion Test Matrix.png" alt="Confusion Test Matrix" width="400"/>
 </div>
 
-Our Training Data Accuracy was 98.3% whereas our testing accuracy came out to be 87.9%. Notice the lack in accuracy is not determing whether someone is not a fraud, but whether or not somebody is a risk to a bank. For this model in particular, we believe this may be because we optimized our parameters to maximize accuracy, not precision. If the metric used was precision, we believe our model would have optimized the following parameters differently. This is something we can look into in the future.
+Our Training Data Accuracy was 98.3% whereas our testing accuracy came out to be 87.9%. Notice the lack in accuracy is not determing whether someone is not a fraud, but whether or not somebody is a risk to a bank. For this model in particular, we believe this may be because we optimized our parameters to maximize accuracy, not precision. If the metric used was precision, we believe our model would have optimized the following parameters differently. This is something we can look into in the future as the optimization process takes over half a day to compute.
 
 ## Model Comparisons
 In terms of accuracy, our Random Forest Classifier model was far more accurate than our Neural Network. Our Neural Network testing data accuracy was 76.5% after 25 epochs whereas our testing data accuracy for our RCF was 87.9%. As for the precision of our "Fraudulent Clients", our RCF (13%) yet again out performed our Neural Network (25%). In neither though is this a good or acceptable precision for a model.
@@ -124,6 +126,9 @@ In terms of accuracy, our Random Forest Classifier model was far more accurate t
 What then are possible reasons for this lack of precision in "Fraudulent Clients"? Well as mentioned earlier, for our RCF model, we believe that if we optimized parameters to focus on precision, we would have better results. Now whether or not this would in turn affect overall accuracy, we do not know.
 
 Another possible cause that has led to a lack of precision in our models happens to lie in the data itself. We believe the labelling of a "Fraudlent Client" is too broad. What do we mean by this? A client who pays mulitple installments late every month is labelled "Fraudulent" in our dataset. Now suppose we have a client who has paid all installments of past loans ontime but completely forgot to pay their last installment ontime, and as a result they pay it a day or two late. They are also labelled as "Fraudulent" in our dataset. This severity of late payments is not distinguished in our dataset, which may be making it hard for our model to have a high precision on fraudulent clients. This would also explain why PCA showed no features that held a significant amount of variance over the others.  
+
+## Conclusion
+We definitely have a better understanding of our data and believe methods such as RCF are appropriate models for the following problem, as it seems to better avoid overfitting than that of neural networks. To improve our model, it would be good to vary the ways we choose to optimize our parameters. Whether that is change the metric of optimization used, optimize our parameters on a wider range of values, or look into changing that value of te parameter **n_estimators**.
 
 ### Contribution Table
 
