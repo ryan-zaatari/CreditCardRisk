@@ -42,11 +42,15 @@ Notice there is no extremely weighted feature in our dataset. In order to retain
 
 Even though our Principal Component Analysis only retains ~17% of the variance with 3 components and ~12% with 2 components, we provide visualizations of PCA with 2 and 3 components on 500 data points. 
 
-![Alt text](<PCA 2D.png>)
-![Alt text](<PCA 3D.png>)
+<div style="display:flex; justify-content:space-around;">
+    <img src="PCA 2D.png" alt="PCA 2D.png" width="500"/>
+    <img src="PCA 3D.png" alt="PCA 3D.png" width="500"/>
+</div>
 
 ## Classification Models
-The first model we will use to analyze loan applicants is a Neural Network. Our training data will be 90% of our initial dataset, and the dataset we will be working with will consist of enough features to retain 80% of the initial variance. Before analyze the results of this model, we have to address the fact that our training data is imbalanced. If not, our model can always predict a person is not a risk and be correct ~90% of the time. The following is our initial training data.
+
+### Neural Network
+The first model we will use to analyze loan applicants is a Neural Network. We chose a neural network to be one of our models due to the many avaialable pre-existing archiechtures there are for binary classification. Our training data will be 80% of our initial dataset, and the dataset we will be working with will consist of enough features to retain 85% of the initial variance. Before analyze the results of this model, we have to address the fact that our training data is imbalanced. If not, our model can always predict a person is not a risk and be correct ~90% of the time. The following is our initial training data.
 
 ![Alt text](<Imbalanced Data.png>)
 
@@ -54,11 +58,13 @@ To compensate for this imbalancement, we create synthetic data to represent risk
 
 ![Alt text](<Balanced Data.png>)
 
-Let us now discuss the structure of our Neural Network. As of now, the architechture that has yielded the best results is a 256-128-64-32-16-8-4-2-1 network. The number represents the number of neurons for that hidden layer. Moreover, the activation type for all of our neurons is ReLu, expect for our output neuron which has a Sigmoid activation type. Below are plots of our training and testing data's loss/accuracy per epoch:
+Let us now discuss the structure of our Neural Network. Let us first test the following architechture: 256-128-64-32-16-8-4-2-1 network. The number represents the number of neurons for that hidden layer. Moreover, the activation type for all of our neurons is ReLu, expect for our output neuron which has a Sigmoid activation type. Below are plots of our training and testing data's loss/accuracy per epoch:
 * * *
 
-![Alt text](<Accuracy Plot.png>)
-![Alt text](<Loss Plot.png>)
+<div style="display:flex; justify-content:space-around;">
+    <img src="Accuracy Plot.png" alt="Accuracy Plot.png" width="400"/>
+    <img src="Loss Plot.png" alt="Loss Plot.png" width="400"/>
+</div>
 
 Notice that both the accuracy of our testing and training data are increasing. This on the surface is good, but when analyzing the trajcteroies of their loss functions per epoch, it seems like we may have an overfitting problem. As our the number of epochs increase, the loss of our training data approaches whereas the loss of our testing data seems to be increasing. This is not good. Our model may be trying to memorize our training data instead of actually learning. To better understand the following, we can look at the recall and precision of our data for nonrisk and risk applicants:
 
@@ -67,17 +73,57 @@ Notice that both the accuracy of our testing and training data are increasing. T
 | Nonrisk | 0.93 | 0.77 | 0.85 |
 | Risk | 0.13 | 0.37 | .19 | 
 
-Our model's precision for risk clients is 0.13. This means out of every 100 times our model predicts an applicant is a risk to a bank, it is correct only 13 of those times. T his is not good and something we need to correct. On the other hand, the precision for those who do not possess fraud is quite high at 0.93.
+Our model's precision for risk clients is 0.13. This means out of every 100 times our model predicts an applicant is a risk to a bank, it is correct only 13 of those times. We explored this issue further by testing other common neural network architechures that are used to conduct binary classification:
 
-## Review and Next Steps:
-* **Reevaluate our data:**
-We need to make sure all noise is removed. This will make our Principal Component Analysis more efficient and allow us to better predict risks in our Neural Network. 
+* **Architecture "64-32-16-8-4-2-1":**
 
-* **Review Neural Network Architechture:**
-There is a clear overfitting issue in our model. This is either due to our current data or the architechture of our model. If it is due to the architechture of our model, we need to reduce the number of hidden layers or neurons. 
+<div style="display:flex; justify-content:space-around;">
+    <img src="Accuracy Plot2.png" alt="Accuracy Plot2.png" width="400"/>
+    <img src="Loss Plot2.png" alt="Loss Plot2.png" width="400"/>
+</div>
 
-* **Implement another model:**
-We are going to implement another model for our data, that being either Naive Bayes or Logistic regression. After getting our neural network working, we hope to compare and contrast the trends picked up from both models to see if we can better understand the data of loan applicants who possess risk.
+|  | Precision | Recall | F1 |
+|----------|----------|----------|----------|
+| Nonrisk | 0.96 | 0.69 | 0.8 |
+| Risk | 0.15 | 0.65 | .25 | 
+
+* **Architecture "128-128-1":**
+<div style="display:flex; justify-content:space-around;">
+    <img src="Accuracy Plot3.png" alt="Accuracy Plot3.png" width="400"/>
+    <img src="Loss Plot3.png" alt="Loss Plot3.png" width="400"/>
+</div>
+
+|  | Precision | Recall | F1 |
+|----------|----------|----------|----------|
+| Nonrisk | 0.94 | 0.77 | 0.85 |
+| Risk | 0.15 | 0.47 | .23 | 
+
+### Random Forest Classifier
+The second model we chose to use is a Random Forest Classifier. The reason behind this choice is because random forest classifiers are generally harder to overfit. We thought this would be a great choice for a second, as our Neural Network tended to overfit our data. There are three parameters we dealt in our Random Forest Classifier.
+
+* n_estimators: The number of trees in the forest
+* min_samples_leaf: The minimum number of samples required to split an internal node
+* max_depth: The maximum depth of the tree
+
+ We will fix n_estimators = 100 while attempting to optimize min_samples_leaf and max_depth. The analysis we used is a grid search to exhaust combinations of different values for **min_samples_leaf** and **max_depth**. For every possible combination fo our paramaeters, we do a 5-fold cross-validation, which means the dataset is divided into 5 subsets (folds), and the model is trained and evaluated 5 times. Each time, a different fold is used as the test set, and the remaining folds are used for training. The chosen scoring metric for optimization is accuracy. Below are the results of our testings:
+
+![Alt text](<Forest Optimization Chart.png>)
+
+Notice that as either max_depth or min_samples_leaf decreases, our Mean Test Score decreases. So for us, it turns out that max_depth = 20 and min_samples_leaf = 1 is most optimal for us. The following are the training and testing data results with our "optimal parameters":
+
+<div style="display:flex; justify-content:space-around;">
+    <img src="Confusion Train Matrix.png" alt="Confusion Train Matrix" width="400"/>
+    <img src="Confusion Test Matrix.png" alt="Confusion Test Matrix" width="400"/>
+</div>
+
+Our Training Data Accuracy was 98.3% whereas our testing accuracy came out to be 87.9%. Notice the lack in accuracy is not determing whether someone is not a fraud, but whether or not somebody is a risk to a bank. For this model in particular, we believe this may be because we optimized our parameters to maximize accuracy, not precision. If the metric used was precision, we believe our model would have optimized the following parameters differently. This is something we can look into in the future.
+
+## Model Comparisons
+In terms of accuracy, our Random Forest Classifier model was far more accurate than our Neural Network. Our Neural Network testing data accuracy was 76.5% after 25 epochs whereas our testing data accuracy for our RCF was 87.9%. As for the precision of our "Fraudulent Clients", our RCF (13%) yet again out performed our Neural Network (25%). In neither though is this a good or acceptable precision for a model.
+
+What then are possible reasons for this lack of precision in "Fraudulent Clients"? Well as mentioned earlier, for our RCF model, we believe that if we optimized parameters to focus on precision, we would have better results. Now whether or not this would in turn affect overall accuracy, we do not know.
+
+Another possible cause that has led to a lack of precision in our models happens to lie in the data itself. We believe the labelling of a "Fraudlent Client" is too broad. What do we mean by this? A client who pays mulitple installments late every month is labelled "Fraudulent" in our dataset. Now suppose we have a client who has paid all installments of past loans ontime but completely forgot to pay their last installment ontime, and as a result they pay it a day or two late. They are also labelled as "Fraudulent" in our dataset. This severity of late payments is not distinguished in our dataset, which may be making it hard for our model to have a high precision on fraudulent clients. This would also explain why PCA showed no features that held a significant amount of variance over the others.  
 
 ### Contribution Table
 
