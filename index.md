@@ -129,11 +129,11 @@ Another possible cause that has led to a lack of precision in our models happens
 
 | Name        | Contributions      |
 |:-------------|:------------------|
-| Colby | Data Cleaning, Preprocessing, Model Code, Mideterm Report, Webpage| 
-| Greg | Data Cleaning, Preprocessing | 
-| Robbie | Data Cleaning, Preprocessing | 
-| Ryan | Data Cleaning|
-| Carter | Midterm Report, Webpage |
+| Colby | Webpage, Evaluations| 
+| Greg | Presentation / Video | 
+| Robbie | Model Coding | 
+| Ryan | Presentation / Video|
+| Carter | Presentation / Video |
 
 
 #### Gantt Chart
