@@ -6,16 +6,16 @@ title: Credit Card Risk Model
 
 ## Introduction/Background
 
-For years, banks have placed an immense focus on assessing loan risk. Substantial research has delved into the analysis of loan risks, aiming to uncover correlations and patterns among people who struggle to payback their loans on time. We look to further investigate these patterns and variations in hopes to gain a better understanding of those who face challenges in meeting their financial gains. 
+Properly assessing loan risk has always been paramount to banks. Substantial research has been conducted to identify patterns and correlation among individuals who struggle to pay back their loans on time. Our goal was to further investigate these patterns and variations in order to enhance our understanding of those who face challenges in meeting their financial gains. 
 
-Our research will be based off of the Kaggle dataset: [Credit Card Fraud Detection](https://www.kaggle.com/datasets/mishra5001/credit-card?select=application_data.csv).It contains over 300,000 people who have taken out loans and indicates whether they were late to pay installments. The dataset contains 122 columns, or features, those of which include gender, annual income, whether one owns assests such as real estate or a car, credit amount, education, and information on previous loan application/history. 
+Our research is based off of the Kaggle dataset: [Credit Card Fraud Detection](https://www.kaggle.com/datasets/mishra5001/credit-card?select=application_data.csv). It contains data on over 300,000 loan applicants and indicates late payment installments. The dataset contains 122 columns, or features, those of which include gender, annual income, whether one owns assests such as real estate or a car, credit amount, education, and information on previous loan application/history. 
 
 ## Problem Statement
 
-Each year, Banks loan out millions of credit cards to customers. A big issue they face is loaning out cards to customers who either will be late to monthly payemnts or not pay at all and charge off. While it might may seem obvious that banks should avoid lending to customers who are likely to not pay back on time, several factors compel them to continue doing so- diversification, competition, and overall reputation. Our objective is to develop a model that better assesses the risk of incoming customers and help identify trends in one's profile that may lead to risk.
+Banks annually issue millions of credit cards, facing the challenge of lending to customers who may delay payments or default. Despite apparent risks demonstrated by prospective loan customers, factors like diversification, market competition, and reputation compel banks to continue such practices. Our objective is to develop a model that enhances risk assessment for new customers and identifies key risk indicators in applicant profiles.
 
 ## Data Preprocessing and PCA
-Our dataset consists of dozens of features, those including gender, education, whether one owns a phone, car, real estate, etc. We also have a feature TARGET that tells us whether an applicant ended up making a late payment. If TARGET = 1, our applicant ended up making a late payment. Applicants where TARGET = 1 we will consider a risk. We hope to reduce the dimensionality of our data through the use of Principal Component Analysis. In order to do this, we first need to clean our data. Of course we begin by removing all null valued entries. We then removed columns where there standard deviation is exactly 0. If all entries share the same value for that particular feature, there is no variance. In our case, FLAG_MOBIL (whether an applicant owns a phone) has a standard deviation equal to 0.
+Our dataset consisted of dozens of features, those including gender, education, whether one owns a phone, car, real estate, etc. We also have a feature TARGET that tells us whether an applicant ended up making a late payment. If TARGET = 1, our applicant ended up making a late payment. Applicants where TARGET = 1 we will consider a risk. We hope to reduce the dimensionality of our data through the use of Principal Component Analysis. In order to do this, we first need to clean our data. Of course we begin by removing all null valued entries. We then removed columns where there standard deviation is exactly 0. If all entries share the same value for that particular feature, there is no variance. In our case, FLAG_MOBIL (whether an applicant owns a phone) has a standard deviation equal to 0.
 
 We then transform all data into numerical values. For example, "Male" -> 1, "Female" -> 0 or for education, "Higher education" -> 2, "Incomplete higher" -> 1, "Secondary / secondary special"  -> 0, "Lower secondary" -> -1. 
 
@@ -50,7 +50,7 @@ Even though our Principal Component Analysis only retains ~17% of the variance w
 ## Classification Models
 
 ### Neural Network
-The first model we will use to analyze loan applicants is a Neural Network. We chose a neural network to be one of our models due to the many avaialable pre-existing archiechtures there are for binary classification. Our training data will be 80% of our initial dataset, and the dataset we will be working with will consist of enough features to retain 85% of the initial variance. Before analyze the results of this model, we have to address the fact that our training data is imbalanced. If not, our model can always predict a person is not a risk and be correct ~90% of the time. The following is our initial training data.
+We chose a Neural Network for its proficiency in binary classification. We trained on 80% of our initial dataset, balancing it to address the skew towards non-risk applicants, and ensuring that it has enough features to retain 85% of the initial variance. We ensured that the dataset was balanced in order to ensure that our model doesn't always predict a person to not be a risk and be correct more than ~90% of the time. The following is our initial training data.
 
 ![Alt text](<Imbalanced Data.png>)
 
@@ -101,7 +101,7 @@ Our model's precision for risk clients is 0.13. This means out of every 100 time
 As we can see, the following architectures perform no better. Our seems to still overfit to our data as training loss is decreasing whereas our testing loss seems to increase overtime. As a result, we tested the arcitechtures again with "dropout" neurons with hopes of correcting our overfitting issue. The graphs of these particular results are not provided, as a the accuracy after 25 epochs is within 1-2% of the networks without "dropout" neurons. 
 
 ### Random Forest Classifier
-The second model we chose to use is a Random Forest Classifier. The reason behind this choice is because random forest classifiers are generally harder to overfit. We thought this would be a great choice for a second, as our Neural Network tended to overfit our data. There are three parameters we dealt in our Random Forest Classifier.
+The second model we chose to use is a Random Forest Classifier. We chose random forest classifier because they generally withstand overfitting, and our Neural Network tended to overfit our data. There are three parameters we dealt in our Random Forest Classifier.
 
 * n_estimators: The number of trees in the forest
 * min_samples_leaf: The minimum number of samples required to split an internal node
@@ -128,7 +128,7 @@ What then are possible reasons for this lack of precision in "Fraudulent Clients
 Another possible cause that has led to a lack of precision in our models happens to lie in the data itself. We believe the labelling of a "Fraudlent Client" is too broad. What do we mean by this? A client who pays mulitple installments late every month is labelled "Fraudulent" in our dataset. Now suppose we have a client who has paid all installments of past loans ontime but completely forgot to pay their last installment ontime, and as a result they pay it a day or two late. They are also labelled as "Fraudulent" in our dataset. This severity of late payments is not distinguished in our dataset, which may be making it hard for our model to have a high precision on fraudulent clients. This would also explain why PCA showed no features that held a significant amount of variance over the others.  
 
 ## Conclusion
-We definitely have a better understanding of our data and believe methods such as RCF are appropriate models for the following problem, as it seems to better avoid overfitting than that of neural networks. To improve our model, it would be good to vary the ways we choose to optimize our parameters- whether that is changing our metric of optimization, optimizing our parameters on a wider range of values, or additionally optimizing our parameter **n_estimators**.
+Our project resulted in a robust model for credit risk assessment. We have a better understanding of our data and believe methods such as RCF are appropriate models for the following problem, as it seems to better avoid overfitting than that of neural networks. We can continue refining our models and methods, exploring parameter optimization- either changing our metric of optimization, optimizing our parameters on a wider range of values, or further optimizing the **n_estimators** parameter.
 
 ### Contribution Table
 
@@ -153,4 +153,3 @@ We definitely have a better understanding of our data and believe methods such a
 * [Shlens, Jonathon. “A Tutorial on Principal Component Analysis.” ArXiv abs/1404.1100 (2014): n. pag.](https://arxiv.org/abs/1404.1100)
 
 * [Mishra5001. (2019, July 15). Credit Card Fraud Detection. Kaggle. https://www.kaggle.com/datasets/mishra5001/credit-card?select=application_data.csv](credit-card?select=application_data.csv)
-
